@@ -8,19 +8,19 @@ namespace ConsoleApplication9
 {
     class Complex
     {
-        public int a, b;
+        public int a, b; //sozdanie classa complex
         public Complex(int a, int b)
         {
-            this.a = a;
+            this.a = a; // dobavlenie ekzemplyarov klassa
             this.b = b;
         }
         public override string ToString()
         {
-            return a + "*" + b;
+            return a + "*" + b; //vozvrashenie znacheniya
         }
-        public static Complex operator +(Complex a1, Complex a2)
+        public static Complex operator +(Complex a1, Complex a2) //peregruzka operatora
         {
-            Complex a3 = new Complex(a1.a * a2.a, a1.b * a2.b);
+            Complex a3 = new Complex(a1.a * a2.a, a1.b * a2.b); //dobavlenie complex vyzvav konstruktor
             return a3;
         }
     }
@@ -29,10 +29,10 @@ namespace ConsoleApplication9
     {
         static void Main(string[] args)
         {
-            Complex m = new Complex(12, 9);
+            Complex m = new Complex(12, 9);//dobavlenie complex cherez konstr
             Complex n = new Complex(12, 11);
-            Complex s = m + n;
-            Console.WriteLine(s);
+            Complex s = m + n; // vychislenie summy
+            Console.WriteLine(s); //vyvod
             Console.ReadKey();
         }
     }
