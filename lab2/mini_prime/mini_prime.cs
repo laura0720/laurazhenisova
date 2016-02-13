@@ -13,36 +13,34 @@ namespace mini_prime
         {
             //file v kotorom est stroka s chislami
 
-            FileStream fs = new FileStream(@"C:\Users\User\Downloads\far2.0\far2.0\PT2016\laura.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream fs = new FileStream("laura.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             //file gde vyvodim otvet
-            FileStream fs1 = new FileStream(@"C:\Users\User\Downloads\far2.0\far2.0\PT2016\laura1.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream fs1 = new FileStream("laura1.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamReader sr = new StreamReader(fs); //schityvaet informaciyu v file
-            StreamWriter sr1 = new StreamWriter(fs1);
-            bool prime = true;
-            int sum = 0;
-            int mini = 0;
-            string[] line = sr.ReadLine().Split(); //razdelyaet mejdu chislami 
+            StreamWriter sr1 = new StreamWriter(fs1); //zapisyvaet info
+            string[] line = sr.ReadLine().Split();//razdelyaet mejdu chislami
+            int mini = int.Parse(line[0]);
+            for (int i = 0; i < line.Length; i++) // proverka i perevod v int
+            { 
+            
+                int x = int.Parse(line[i]);
+                int sum = 0;
+                bool pr = false;
+                
 
-            // proverka i perevod v int
-            int[] x = new int[line.Length];
-            for (int i = 0; i < line.Length; i++)
-            {
-                int x[i] = int.Parse(line[i]);
-
-                for (int j = 2; j < x; i++) //probegaemsya po stroke
+                for (int j = 2; j < x; j++) //probegaemsya po stroke
                 {
                     if (x % j == 0)
                     {
                         sum++;
                     } if (sum < 1)
                     {
-                        if (prime == true)
-                        {
+                             pr = true;
+                        } if (pr)
+                    {
+                        if (mini > x)
                             mini = x;
-                        } else if (x < mini)
-                        {
-                            mini = x;
-                        }
+                    }
 
 
 
@@ -60,4 +58,4 @@ namespace mini_prime
             }
         }
     }
-}
+
